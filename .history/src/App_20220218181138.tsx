@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
 
 import { Button } from './components/Button';
 import { MovieCard } from './components/MovieCard';
 
 
 import { SideBar } from './components/SideBar';
-import { Content } from './components/Content';
 
 import './styles/global.scss';
 
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
-
+const Content = lazy(async() => {
+  return import('./components/Content').then(mod => mod.Content);
+});
 
 
 export function App() {
@@ -27,3 +28,7 @@ export function App() {
     </div>
   )
 }
+function dynamic(arg0: () => Promise<(props: any) => JSX.Element>, arg1: { loading: () => JSX.Element; }) {
+  throw new Error('Function not implemented.');
+}
+

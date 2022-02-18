@@ -7,7 +7,7 @@ import '../styles/global.scss';
 
 import '../styles/sidebar.scss';
 import '../styles/content.scss';
-import { AutoSizer, List, ListRowRenderer } from 'react-virtualized';
+import { List, ListRowRenderer } from 'react-virtualized';
 
 interface GenreResponseProps {
   id: number;
@@ -17,7 +17,7 @@ interface GenreResponseProps {
 
 interface MovieProps {
   imdbID: string;
-  Title: string;
+  Title: string; 
   Poster: string;
   Ratings: Array<{
     Source: string;
@@ -26,14 +26,14 @@ interface MovieProps {
   Runtime: string;
 }
 
-export function Content(props: any) {
+export function Content(props : any) {
   // Complete aqui
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
-  const rowRenderer: ListRowRenderer = ({ index, key, style }) => {
+  const rowRender : ListRowRenderer = ({ index, key, style }) => {
     return (
-      <MovieCard key={movies[index].imdbID} title={movies[index].Title} poster={movies[index].Poster} runtime={movies[index].Runtime} rating={movies[index].Ratings[0].Value} />
+      <MovieCard key={movies[index].imdbID} title={movies[index].Title} poster={movies[index].Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
     )
   }
 
@@ -57,12 +57,9 @@ export function Content(props: any) {
 
         <main>
           <div className="movies-list">
-
-            <AutoSizer>
-              {({ height, width }) => (
-                <List height={height} rowHeight={height} width={width} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
-              )}
-            </AutoSizer>,
+            {movies.map(movie => (
+              <MovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
+            ))}
           </div>
         </main>
       </div>

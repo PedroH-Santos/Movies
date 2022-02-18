@@ -58,11 +58,7 @@ export function Content(props: any) {
         <main>
           <div className="movies-list">
 
-            <AutoSizer>
-              {({ height, width }) => (
-                <List height={height} rowHeight={height} width={width} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
-              )}
-            </AutoSizer>,
+                <List height={900} rowHeight={height} width={width} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
           </div>
         </main>
       </div>

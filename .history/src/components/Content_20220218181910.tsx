@@ -31,7 +31,7 @@ export function Content(props: any) {
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
-  const rowRenderer: ListRowRenderer = ({ index, key, style }) => {
+  const rowRender: ListRowRenderer = ({ index, key, style }) => {
     return (
       <MovieCard key={movies[index].imdbID} title={movies[index].Title} poster={movies[index].Poster} runtime={movies[index].Runtime} rating={movies[index].Ratings[0].Value} />
     )
@@ -57,12 +57,9 @@ export function Content(props: any) {
 
         <main>
           <div className="movies-list">
-
             <AutoSizer>
-              {({ height, width }) => (
-                <List height={height} rowHeight={height} width={width} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
-              )}
-            </AutoSizer>,
+              <List height={300} rowHeight={30} width={900} overscanRowCount={5} rowCount={results.length} rowRenderer={rowRenderer} />
+            </AutoSizer>
           </div>
         </main>
       </div>

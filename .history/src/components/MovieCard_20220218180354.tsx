@@ -36,7 +36,6 @@ function MovieCardComponent(props: MovieCardProps) {
   )
 }
 
-export const MovieCard = memo(MovieCardComponent, (prevProps,nextProps) => {
-  return Object.is(prevProps,nextProps);
-
+export const MovieCard = memo(MovieCardComponent, () => {
+  
 });

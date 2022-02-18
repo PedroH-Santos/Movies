@@ -25,9 +25,6 @@ export function SideBar(props : any) {
       setGenres(response.data);
     });
   }, []);
-
-
-
   return (
     <>
       <nav className="sidebar">

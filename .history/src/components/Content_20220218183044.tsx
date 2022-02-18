@@ -55,16 +55,8 @@ export function Content(props: any) {
           <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
         </header>
 
-        <main>
-          <div className="movies-list">
 
-            <AutoSizer>
-              {({ height, width }) => (
-                <List height={height} rowHeight={height} width={width} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
-              )}
-            </AutoSizer>,
-          </div>
-        </main>
+                <List height={900} rowHeight={30} width={800} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
       </div>
 
     </>

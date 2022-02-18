@@ -12,7 +12,11 @@ import './styles/global.scss';
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
-
+const Content = dynamic(() => {
+  return import('./components/Content').then(mod => mod.co);
+}, {
+  loading: () => <span> Carregando... </span>
+});
 
 
 export function App() {

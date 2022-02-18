@@ -12,7 +12,11 @@ import './styles/global.scss';
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
-
+const AddProductToWishList = dynamic<AddProductToWishListProps>(() => {
+  return import('./AddProductToWishList').then(mod => mod.AddProductToWishList);
+}, {
+  loading: () => <span> Carregando... </span>
+});
 
 
 export function App() {

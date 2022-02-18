@@ -14,7 +14,6 @@ import './styles/content.scss';
 
 
 
-
 export function App() {
 
   const [selectedGenreId, setSelectedGenreId] = useState(1);

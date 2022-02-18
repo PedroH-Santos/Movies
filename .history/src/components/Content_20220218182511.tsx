@@ -60,7 +60,7 @@ export function Content(props: any) {
 
             <AutoSizer>
               {({ height, width }) => (
-                <List height={height} rowHeight={height} width={width} overscanRowCount={10} rowCount={movies.length} rowRenderer={rowRenderer } />
+                <List height={height} rowHeight={400} width={width} overscanRowCount={5} rowCount={movies.length} rowRenderer={rowRenderer } />
               )}
             </AutoSizer>,
           </div>
